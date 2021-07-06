@@ -133,9 +133,9 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  type: "header",
+  type: "footer",
   width: 1200,
-  height: 600,
+  height: 300,
   theme: 'white',
   logoSelection: '',
   headline: 'Header Text',
