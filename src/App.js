@@ -79,12 +79,14 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   }
 
   //Mal Logic
-  let mal = mal4Black;
-  if(theme === "white" && malChoice === "four-line-mal"){
+  let mal = "";
+  if(theme === "white" && (malChoice === "four-line-mal" || malChoice === "fourStack")){
     mal = mal4White;
-  } else if(theme === "white" && malChoice === "five-line-mal"){
+  } else if(theme === "black" && (malChoice === "four-line-mal" || malChoice === "fourStack")){
+    mal = mal5Black;
+  } else if(theme === "white" && (malChoice === "five-line-mal" || malChoice === "fiveStack")){
     mal = mal5White;
-  } else if(theme === "black" && malChoice === "five-line-mal"){
+  } else if(theme === "black" && (malChoice === "five-line-mal" || malChoice === "fiveStack")){
     mal = mal5Black;
   }
 
