@@ -140,16 +140,16 @@ App.defaultProps = {
   height: 300,
   theme: 'white',
   logoSelection: '',
-  headline: 'Header Text',
-  subheadline: "Subheader Text",
+  headline: '',
+  subheadline: '',
   headlineFontSize: 100,
-  subheadlineFontSize: 50,
+  subheadlineFontSize: 100,
   backgroundImage: '',
   popColor: '',
   dataFutures: false,
   teamName: 'Team Name Here',
   fontWeight: "normal",
-  malChoice: "four-line-mal"
+  malChoice: "fourStack"
 }
 
 export default App;
