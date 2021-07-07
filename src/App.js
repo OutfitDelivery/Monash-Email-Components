@@ -83,7 +83,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   if(theme === "white" && (malChoice === "four-line-mal" || malChoice === "fourStack")){
     mal = mal4White;
   } else if(theme === "black" && (malChoice === "four-line-mal" || malChoice === "fourStack")){
-    mal = mal5Black;
+    mal = mal4Black;
   } else if(theme === "white" && (malChoice === "five-line-mal" || malChoice === "fiveStack")){
     mal = mal5White;
   } else if(theme === "black" && (malChoice === "five-line-mal" || malChoice === "fiveStack")){
@@ -147,7 +147,7 @@ App.defaultProps = {
   backgroundImage: '',
   popColor: '',
   dataFutures: false,
-  teamName: 'Team Name Here',
+  teamName: '',
   fontWeight: "normal",
   malChoice: "fourStack"
 }
