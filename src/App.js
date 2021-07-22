@@ -97,7 +97,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   }
 
   let specialFormatting = (text) => {
-    text = text.replaceAll("[amp]", "&");
+    text = text.toString().replaceAll("[amp]", "&");
     return text;
   }
 
