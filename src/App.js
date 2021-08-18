@@ -25,7 +25,7 @@ import mal5White from './components/mal/5line-white.svg'
 import mal4Black from './components/mal/4line-black.svg'
 import mal4White from './components/mal/4line-white.svg'
 
-function App({ type, theme, logoSelection, headline, subheadline, backgroundImage, width, height, headlineFontSize, subheadlineFontSize, popColor, dataFutures, teamName, fontWeight, malChoice }) {
+function App({ type, theme, logoSelection, headline, subheadline, backgroundImage, width, height, headlineFontSize, subheadlineFontSize, popColor, dataFutures, teamName, fontWeight, malChoice, textTransform, showWhiteHeader }) {
   let backgroundImg = backgroundImage;
   if(backgroundImage === ""){
     switch (popColor) {
@@ -49,12 +49,18 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
         break;
     }
   }
-  
-  let appStyle = {
+
+  let sizingStyle = {
     width: `${width}px`,
     height: `${height}px`,
+  }
+  
+  let appStyle = {
+    width: `100%`,
+    height: `${showWhiteHeader == true ? height - 200 : height}px`,
     backgroundImage: `url(${backgroundImg})`,
-    color: theme
+    color: theme,
+    textTransform: textTransform,
   };
 
   let logoStyle = {};
@@ -76,6 +82,8 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
     } else if(theme === "black"){
       logo = MonashUniversity60Black;
     }
+  } else if(logoSelection === "none"){
+    logo = '';
   }
 
   //Mal Logic
@@ -102,6 +110,11 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   }
 
   return (
+    <div style={sizingStyle}>
+    {showWhiteHeader==true ? <div className='header'>
+      <img className="logo" src={MonashUniversityBlack} style={logoStyle}/>
+      <div className="team-name"><p>{teamName}</p></div>
+    </div> : ""}
     <div className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type}`} style={ appStyle }>
       {conditionalText(<img className="logo" src={logo} style={logoStyle}/>, logoSelection)}
       <div className="heading">
@@ -111,6 +124,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
       <div className="data-futures" style={dataFuturesStyle}></div>
       <div className="team-name">{teamName}</div>
       <img className="mal" src={mal} />
+    </div>
     </div>
   );
 }
@@ -131,13 +145,15 @@ App.propTypes = {
   teamName: PropTypes.string,
   fontWeight: PropTypes.string,
   malChoice: PropTypes.string,
+  textTransform: PropTypes.string,
+  showWhiteHeader: PropTypes.bool,
 
 }
 
 App.defaultProps = {
-  type: "footer",
+  type: "header",
   width: 1200,
-  height: 300,
+  height: 400,
   theme: 'white',
   logoSelection: '',
   headline: '',
@@ -148,8 +164,10 @@ App.defaultProps = {
   popColor: '',
   dataFutures: false,
   teamName: '',
-  fontWeight: "normal",
-  malChoice: "fourStack"
+  fontWeight: "bold",
+  malChoice: "fourStack",
+  textTransform: "uppercase",
+  showWhiteHeader: false 
 }
 
 export default App;

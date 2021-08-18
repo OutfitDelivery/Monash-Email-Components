@@ -26,6 +26,26 @@ html,body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; 
+  text-transform: uppercase;
+}
+
+.header{
+  height: 200px;
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header .logo{
+  align-self: center;
+}
+
+.header .team-name{
+  display: flex;
+  position: unset;
+  align-items: center;
 }
 
 .heading{
@@ -38,7 +58,6 @@ h1, h2 {
   font-size: 76pt;
   line-height: 1;
   font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
   max-width: 735px;
 }
@@ -90,7 +109,7 @@ h1, h2 {
   text-transform: uppercase;
 }
 
-.team-name::first-line {
+.team-name::first-line, .team-name p::first-line {
   color: #006bab;
 }
 
