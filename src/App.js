@@ -64,7 +64,6 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   };
 
   let logoStyle = {};
-//Overflows????
   const headingStyle = {fontSize: `calc(76pt * (${headlineFontSize} / 100))`}
   const subheadlineStyle = {fontSize: `calc(76pt * (${subheadlineFontSize} / 100))`}
   const dataFuturesStyle = {backgroundImage: `url('${dataFuturesImage}')`, display: `${dataFutures ? 'block' : 'none'}`};
@@ -113,7 +112,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
     <div style={sizingStyle}>
     {showWhiteHeader==true ? <div className='header'>
       <img className="logo" src={MonashUniversityBlack} style={logoStyle}/>
-      <div className="team-name"><p>{teamName}</p></div>
+      <div className="team-name"><p>{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</p></div>
     </div> : ""}
     <div className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type}`} style={ appStyle }>
       {conditionalText(<img className="logo" src={logo} style={logoStyle}/>, logoSelection)}
@@ -122,7 +121,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
         {conditionalText(<h2 style={subheadlineStyle}>{specialFormatting(subheadline)}</h2>, subheadline)}
       </div>
       <div className="data-futures" style={dataFuturesStyle}></div>
-      <div className="team-name">{teamName}</div>
+      <div className="team-name">{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</div>
       <img className="mal" src={mal} />
     </div>
     </div>
