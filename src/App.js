@@ -155,7 +155,7 @@ App.defaultProps = {
   width: 1200,
   height: 400,
   theme: 'black',
-  logoSelection: 'default',
+  logoSelection: '',
   headline: '',
   subheadline: '',
   headlineFontSize: 100,
