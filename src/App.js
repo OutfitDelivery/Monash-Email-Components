@@ -151,7 +151,7 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  type: "header",
+  type: "footer",
   width: 1200,
   height: 400,
   theme: 'black',

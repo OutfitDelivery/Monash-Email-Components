@@ -29,6 +29,10 @@ html,body {
   text-transform: uppercase;
 }
 
+.App.type-footer{
+  justify-content: center;
+}
+
 .header{
   height: 200px;
   width: 100%;
