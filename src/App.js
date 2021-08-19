@@ -115,7 +115,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
       <img className="logo" src={MonashUniversityBlack} style={logoStyle}/>
       <div className="team-name"><p>{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</p></div>
     </div> : ""}
-    <div className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type}`} style={ appStyle }>
+    <div className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type} header-${showWhiteHeader}`} style={ appStyle }>
       {conditionalText(<img className="logo" src={logo} style={logoStyle}/>, logoSelection)}
       <div className="heading">
         {conditionalText(<h1 style={headingStyle}>{specialFormatting(headline)}</h1>, headline)}
@@ -151,12 +151,12 @@ App.propTypes = {
 }
 
 App.defaultProps = {
-  type: "footer",
+  type: "header",
   width: 1200,
   height: 400,
   theme: 'black',
   logoSelection: '',
-  headline: '',
+  headline: 'asdasdasdasdasd',
   subheadline: '',
   headlineFontSize: 100,
   subheadlineFontSize: 100,

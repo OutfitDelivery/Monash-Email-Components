@@ -66,6 +66,10 @@ h1, h2 {
   max-width: 735px;
 }
 
+.header-true h1, .header-true h2{
+  max-height: 90%;
+}
+
 .fontWeight-normal h1, .fontWeight-normal h2{
   font-weight: normal;
 }
