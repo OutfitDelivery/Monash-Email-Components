@@ -105,6 +105,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
 
   let specialFormatting = (text) => {
     text = text.toString().replaceAll("[amp]", "&");
+    text = text.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )
     return text;
   }
 
@@ -153,16 +154,16 @@ App.defaultProps = {
   type: "header",
   width: 1200,
   height: 400,
-  theme: 'white',
-  logoSelection: '',
-  headline: '',
+  theme: 'black',
+  logoSelection: 'default',
+  headline: 'Email<br>Header',
   subheadline: '',
   headlineFontSize: 100,
   subheadlineFontSize: 100,
   backgroundImage: '',
   popColor: '',
-  dataFutures: false,
-  teamName: '',
+  dataFutures: true,
+  teamName: 'test',
   fontWeight: "bold",
   malChoice: "fourStack",
   textTransform: "uppercase",
