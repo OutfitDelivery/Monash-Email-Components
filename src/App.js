@@ -153,21 +153,21 @@ App.propTypes = {
 App.defaultProps = {
   type: "header",
   width: 1200,
-  height: 580,
+  height: 400,
   theme: 'white',
   logoSelection: '',
-  headline: 'asdasdasdasdasd',
+  headline: '',
   subheadline: '',
   headlineFontSize: 100,
   subheadlineFontSize: 100,
   backgroundImage: '',
   popColor: '',
   dataFutures: false,
-  teamName: 'Monash<br>Information<br>Technology',
+  teamName: '',
   fontWeight: "bold",
   malChoice: "fourStack",
-  textTransform: "none",
-  showWhiteHeader: true 
+  textTransform: "uppercase",
+  showWhiteHeader: false 
 }
 
 export default App;
