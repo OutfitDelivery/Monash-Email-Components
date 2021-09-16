@@ -50,6 +50,7 @@ html,body {
   display: flex;
   position: unset;
   align-items: center;
+  margin-right: 40px;
 }
 
 .heading{
@@ -111,11 +112,12 @@ h1, h2 {
   display: none;
   right: 265px;
   top: 40px;
-  width: 100px;
+  min-width: 100px;
+  max-width: 160px;
   height: 100px;
   font-size: 22px;
   text-transform: uppercase;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .team-name::first-line, .team-name p::first-line {
