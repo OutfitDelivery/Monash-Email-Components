@@ -49,6 +49,9 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
         break;
     }
   }
+  else {
+    backgroundImg = encodeURIComponent(backgroundImage)
+  }
 
   let sizingStyle = {
     width: `${width}px`,
