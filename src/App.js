@@ -163,7 +163,7 @@ App.defaultProps = {
   subheadline: '',
   headlineFontSize: 100,
   subheadlineFontSize: 100,
-  backgroundImage: 'https://files.outfit.io/media_library_items/342358/MONU%2520286%2520Education-EDM-banner-01%2520%25281%2529.png',
+  backgroundImage: '',
   popColor: '',
   dataFutures: false,
   teamName: '',
