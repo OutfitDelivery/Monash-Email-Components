@@ -124,6 +124,7 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
         {conditionalText(<h1 style={headingStyle}>{specialFormatting(headline)}</h1>, headline)}
         {conditionalText(<h2 style={subheadlineStyle}>{specialFormatting(subheadline)}</h2>, subheadline)}
       </div>
+      <div className="test-debug">{backgroundImg}</div>
       <div className="data-futures" style={dataFuturesStyle}></div>
       <div className="team-name">{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</div>
       <img className="mal" src={mal} />
