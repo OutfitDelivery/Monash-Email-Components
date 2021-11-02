@@ -26,6 +26,10 @@ import mal4Black from './components/mal/4line-black.svg'
 import mal4White from './components/mal/4line-white.svg'
 
 function App({ type, theme, logoSelection, headline, subheadline, backgroundImage, width, height, headlineFontSize, subheadlineFontSize, popColor, dataFutures, teamName, fontWeight, malChoice, textTransform, showWhiteHeader }) {
+
+  //DTB-6661 Headline Force Caps
+  headline = headline.toString().toUpperCase();
+
   let backgroundImg = backgroundImage;
   if(backgroundImage === ""){
     switch (popColor) {
