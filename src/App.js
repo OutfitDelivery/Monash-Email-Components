@@ -28,7 +28,7 @@ import mal4White from './components/mal/4line-white.svg'
 function App({ type, theme, logoSelection, headline, subheadline, backgroundImage, width, height, headlineFontSize, subheadlineFontSize, popColor, dataFutures, teamName, fontWeight, malChoice, textTransform, showWhiteHeader }) {
 
   //DTB-6661 Headline Force Caps
-  headline = headline.toString().toUpperCase();
+  //headline = headline.toString().toUpperCase();
 
   let backgroundImg = backgroundImage;
   if(backgroundImage === ""){
@@ -163,8 +163,8 @@ App.defaultProps = {
   height: 400,
   theme: 'white',
   logoSelection: '',
-  headline: 'Banner header goes here',
-  subheadline: '',
+  headline: 'Banner<br>header',
+  subheadline: 'subline here',
   headlineFontSize: 100,
   subheadlineFontSize: 100,
   backgroundImage: '',
