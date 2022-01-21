@@ -27,9 +27,6 @@ import mal4White from './components/mal/4line-white.svg'
 
 function App({ type, theme, logoSelection, headline, subheadline, backgroundImage, width, height, headlineFontSize, subheadlineFontSize, popColor, dataFutures, teamName, fontWeight, malChoice, textTransform, showWhiteHeader }) {
 
-  //DTB-6661 Headline Force Caps
-  //headline = headline.toString().toUpperCase();
-
   let backgroundImg = backgroundImage;
   if(backgroundImage === ""){
     switch (popColor) {
@@ -71,8 +68,14 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   };
 
   let logoStyle = {};
-  const headingStyle = {fontSize: `calc(76pt * (${headlineFontSize} / 100))`}
-  const subheadlineStyle = {fontSize: `calc(76pt * (${subheadlineFontSize} / 100))`}
+  const headingStyle = {
+    fontSize: `calc(76pt * (${headlineFontSize} / 100))`,
+    lineHeight: `calc(76pt * (${headlineFontSize} / 100))`,
+  }
+  const subheadlineStyle = {
+    fontSize: `calc(76pt * (${subheadlineFontSize} / 100))`,
+    lineHeight: `calc(76pt * (${subheadlineFontSize} / 100))`,
+  }
   const dataFuturesStyle = {backgroundImage: `url('${dataFuturesImage}')`, display: `${dataFutures ? 'block' : 'none'}`};
   
   let logo = MonashUniversityWhite;
@@ -163,7 +166,7 @@ App.defaultProps = {
   height: 400,
   theme: 'white',
   logoSelection: '',
-  headline: 'Banner<br>header',
+  headline: 'Banner header',
   subheadline: 'subline here',
   headlineFontSize: 100,
   subheadlineFontSize: 100,
