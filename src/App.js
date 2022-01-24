@@ -167,7 +167,7 @@ App.defaultProps = {
   theme: 'white',
   logoSelection: '',
   headline: 'Banner header',
-  subheadline: 'subline here',
+  subheadline: '',
   headlineFontSize: 100,
   subheadlineFontSize: 100,
   backgroundImage: '',
