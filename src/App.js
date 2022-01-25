@@ -128,8 +128,10 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
     <div className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type} header-${showWhiteHeader}`} style={ appStyle }>
       {conditionalText(<img className="logo" src={logo} style={logoStyle}/>, logoSelection)}
       <div className="heading">
+        <outfit-limiter max-lines="3">
         {conditionalText(<h1 style={headingStyle}>{specialFormatting(headline)}</h1>, headline)}
         {conditionalText(<h2 style={subheadlineStyle}>{specialFormatting(subheadline)}</h2>, subheadline)}
+        </outfit-limiter>
       </div>
       <div className="data-futures" style={dataFuturesStyle}></div>
       <div className="team-name">{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</div>
