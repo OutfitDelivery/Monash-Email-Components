@@ -149,3 +149,8 @@ h1, h2 {
 .type-footer .mal{
   display: block;
 }
+
+.heading [data-overflow]::after {
+  font-size: 1.8em !important;
+  line-height: 1.2em !important;
+}
