@@ -1,34 +1,52 @@
 import PropTypes from "prop-types";
-import './App.css';
-import Shapes from './components/shapes/shapes'
-import Logos from './components/logos/logos'
-import {ReactComponent as MakeLogo} from './logo.svg'
-import {ReactComponent as ReactLogo} from './react-logo.svg'
+import "./App.css";
+import Shapes from "./components/shapes/shapes";
+import Logos from "./components/logos/logos";
+import { ReactComponent as MakeLogo } from "./logo.svg";
+import { ReactComponent as ReactLogo } from "./react-logo.svg";
+import parse from "html-react-parser";
 
 //Import Logos
-import MonashUniversityWhite from './components/logos/monash-university-white.svg'
-import MonashUniversityBlack from './components/logos/monash-university-black.svg'
-import MonashUniversity60White from './components/logos/monash-university-60-white.svg'
-import MonashUniversity60Black from './components/logos/monash-university-60-black.svg'
+import MonashUniversityWhite from "./components/logos/monash-university-white.svg";
+import MonashUniversityBlack from "./components/logos/monash-university-black.svg";
+import MonashUniversity60White from "./components/logos/monash-university-60-white.svg";
+import MonashUniversity60Black from "./components/logos/monash-university-60-black.svg";
 
-import fuschia from './components/backgrounds/fuschia.jpeg'
-import green from './components/backgrounds/green.jpeg'
-import orange from './components/backgrounds/orange.jpeg'
-import purple from './components/backgrounds/purple.jpeg'
-import red from './components/backgrounds/red.jpeg'
-import ruby from './components/backgrounds/ruby.jpeg'
+import fuschia from "./components/backgrounds/fuschia.jpeg";
+import green from "./components/backgrounds/green.jpeg";
+import orange from "./components/backgrounds/orange.jpeg";
+import purple from "./components/backgrounds/purple.jpeg";
+import red from "./components/backgrounds/red.jpeg";
+import ruby from "./components/backgrounds/ruby.jpeg";
 
-import dataFuturesImage from './components/data-futures-image.svg'
+import dataFuturesImage from "./components/data-futures-image.svg";
 
-import mal5Black from './components/mal/5line-black.svg'
-import mal5White from './components/mal/5line-white.svg'
-import mal4Black from './components/mal/4line-black.svg'
-import mal4White from './components/mal/4line-white.svg'
+import mal5Black from "./components/mal/5line-black.svg";
+import mal5White from "./components/mal/5line-white.svg";
+import mal4Black from "./components/mal/4line-black.svg";
+import mal4White from "./components/mal/4line-white.svg";
 
-function App({ type, theme, logoSelection, headline, subheadline, backgroundImage, width, height, headlineFontSize, subheadlineFontSize, popColor, dataFutures, teamName, fontWeight, malChoice, textTransform, showWhiteHeader }) {
-
+function App({
+  type,
+  theme,
+  logoSelection,
+  headline,
+  subheadline,
+  backgroundImage,
+  width,
+  height,
+  headlineFontSize,
+  subheadlineFontSize,
+  popColor,
+  dataFutures,
+  teamName,
+  fontWeight,
+  malChoice,
+  textTransform,
+  showWhiteHeader,
+}) {
   let backgroundImg = backgroundImage;
-  if(backgroundImage === ""){
+  if (backgroundImage === "") {
     switch (popColor) {
       case "green":
         backgroundImg = green;
@@ -49,16 +67,15 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
         backgroundImg = fuschia;
         break;
     }
-  }
-  else {
+  } else {
     backgroundImg = backgroundImage;
   }
 
   let sizingStyle = {
     width: `${width}px`,
     height: `${height}px`,
-  }
-  
+  };
+
   let appStyle = {
     width: `100%`,
     height: `${showWhiteHeader == true ? height - 200 : height}px`,
@@ -71,72 +88,118 @@ function App({ type, theme, logoSelection, headline, subheadline, backgroundImag
   const headingStyle = {
     fontSize: `calc(76pt * (${headlineFontSize} / 100))`,
     lineHeight: `calc(76pt * (${headlineFontSize} / 100))`,
-  }
+  };
   const subheadlineStyle = {
     fontSize: `calc(76pt * (${subheadlineFontSize} / 100))`,
     lineHeight: `calc(76pt * (${subheadlineFontSize} / 100))`,
-  }
-  const dataFuturesStyle = {backgroundImage: `url('${dataFuturesImage}')`, display: `${dataFutures ? 'block' : 'none'}`};
-  
+  };
+  const dataFuturesStyle = {
+    backgroundImage: `url('${dataFuturesImage}')`,
+    display: `${dataFutures ? "block" : "none"}`,
+  };
+
   let logo = MonashUniversityWhite;
-  if(theme === "black" && logoSelection === "default"){
+  if (theme === "black" && logoSelection === "default") {
     logo = MonashUniversityBlack;
-  } else if(logoSelection === "60-year-lockup"){
+  } else if (logoSelection === "60-year-lockup") {
     logoStyle = {
       alignSelf: `flex-start`,
-    }
+    };
 
-    if(theme === "white"){
+    if (theme === "white") {
       logo = MonashUniversity60White;
-    } else if(theme === "black"){
+    } else if (theme === "black") {
       logo = MonashUniversity60Black;
     }
-  } else if(logoSelection === "none"){
-    logo = '';
+  } else if (logoSelection === "none") {
+    logo = "";
   }
 
   //Mal Logic
   let mal = "";
-  if(theme === "white" && (malChoice === "four-line-mal" || malChoice === "fourStack")){
+  if (
+    theme === "white" &&
+    (malChoice === "four-line-mal" || malChoice === "fourStack")
+  ) {
     mal = mal4White;
-  } else if(theme === "black" && (malChoice === "four-line-mal" || malChoice === "fourStack")){
+  } else if (
+    theme === "black" &&
+    (malChoice === "four-line-mal" || malChoice === "fourStack")
+  ) {
     mal = mal4Black;
-  } else if(theme === "white" && (malChoice === "five-line-mal" || malChoice === "fiveStack")){
+  } else if (
+    theme === "white" &&
+    (malChoice === "five-line-mal" || malChoice === "fiveStack")
+  ) {
     mal = mal5White;
-  } else if(theme === "black" && (malChoice === "five-line-mal" || malChoice === "fiveStack")){
+  } else if (
+    theme === "black" &&
+    (malChoice === "five-line-mal" || malChoice === "fiveStack")
+  ) {
     mal = mal5Black;
   }
 
   let conditionalText = (el, text) => {
-    if(text !== ""){
+    if (text !== "") {
       return el;
     }
-  }
+  };
 
   let specialFormatting = (text) => {
     text = text.toString().replaceAll("[amp]", "&");
-    text = text.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )
+    // text = text.split("<br>").map((it, i) => <div key={"x" + i}>{it}</div>);
+    // text = text.split("<br />").map((it, i) => <div key={"x" + i}>{it}</div>);
     return text;
-  }
+  };
 
   return (
     <div style={sizingStyle}>
-    {showWhiteHeader==true ? <div className='header'>
-      <img className="logo" src={MonashUniversityBlack} style={logoStyle}/>
-      <div className="team-name"><p>{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</p></div>
-    </div> : ""}
-    <div className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type} header-${showWhiteHeader}`} style={ appStyle }>
-      {conditionalText(<img className="logo" src={logo} style={logoStyle}/>, logoSelection)}
-      <div className="heading">
-        <outfit-limiter max-lines="3">
-        {conditionalText(<h1 style={headingStyle}>{specialFormatting(headline)}</h1>, headline)}
-        {conditionalText(<h2 style={subheadlineStyle}>{specialFormatting(subheadline)}</h2>, subheadline)}
-        </outfit-limiter>
+      {showWhiteHeader == true ? (
+        <div className="header">
+          <img className="logo" src={MonashUniversityBlack} style={logoStyle} />
+          <div className="team-name">
+            <p>
+              {teamName.split("<br>").map((it, i) => (
+                <div key={"x" + i}>{it}</div>
+              ))}
+            </p>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
+      <div
+        className={`App dataFutures-${dataFutures} fontWeight-${fontWeight} logo-${logoSelection} type-${type} header-${showWhiteHeader}`}
+        style={appStyle}
+      >
+        {conditionalText(
+          <img className="logo" src={logo} style={logoStyle} />,
+          logoSelection
+        )}
+        <div className="heading">
+          <outfit-limiter max-lines="3">
+            {conditionalText(
+              <h1 style={headingStyle}>
+                {parse(specialFormatting(headline) || "")}
+              </h1>,
+              headline
+            )}
+            {conditionalText(
+              <h2 style={subheadlineStyle}>
+                {parse(specialFormatting(subheadline) || "")}
+              </h2>,
+              subheadline
+            )}
+          </outfit-limiter>
+        </div>
+        <div className="data-futures" style={dataFuturesStyle}></div>
+        <div className="team-name">
+          {teamName.split("<br>").map((it, i) => (
+            <div key={"x" + i}>{it}</div>
+          ))}
+        </div>
+        <img className="mal" src={mal} />
       </div>
-      <div className="data-futures" style={dataFuturesStyle}></div>
-      <div className="team-name">{teamName.split('<br>').map( (it, i) => <div key={'x'+i}>{it}</div> )}</div>
-      <img className="mal" src={mal} />
-    </div>
     </div>
   );
 }
@@ -159,27 +222,26 @@ App.propTypes = {
   malChoice: PropTypes.string,
   textTransform: PropTypes.string,
   showWhiteHeader: PropTypes.bool,
-
-}
+};
 
 App.defaultProps = {
   type: "header",
   width: 1200,
   height: 400,
-  theme: 'white',
-  logoSelection: '',
-  headline: '',
-  subheadline: '',
+  theme: "white",
+  logoSelection: "",
+  headline: "",
+  subheadline: "",
   headlineFontSize: 100,
   subheadlineFontSize: 100,
-  backgroundImage: '',
-  popColor: '',
+  backgroundImage: "",
+  popColor: "",
   dataFutures: false,
-  teamName: '',
+  teamName: "",
   fontWeight: "bold",
   malChoice: "fourStack",
   textTransform: "uppercase",
-  showWhiteHeader: false 
-}
+  showWhiteHeader: false,
+};
 
 export default App;
